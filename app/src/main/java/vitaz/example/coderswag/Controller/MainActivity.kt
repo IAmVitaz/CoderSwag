@@ -1,7 +1,8 @@
-package vitaz.example.coderswag
+package vitaz.example.coderswag.Controller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import vitaz.example.coderswag.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
