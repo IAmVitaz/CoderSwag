@@ -10,7 +10,24 @@ import androidx.recyclerview.widget.RecyclerView
 import vitaz.example.coderswag.Model.Product
 import vitaz.example.coderswag.R
 
-class ProductsAdapter (val context: Context, val product : List<Product>) : RecyclerView.Adapter<ProductsAdapter.ProductHolder>() {
+class ProductsAdapter (
+    val context: Context,
+    val product : List<Product>
+) : RecyclerView.Adapter<ProductsAdapter.ProductHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
+        val view = LayoutInflater.from(context)
+            .inflate(R.layout.product_list_item, parent, false)
+        return ProductHolder(view)
+    }
+
+    override fun getItemCount(): Int {
+        return product.count()
+    }
+
+    override fun onBindViewHolder(holder: ProductHolder, position: Int) {
+        holder?.bindProduct(product[position], context)
+    }
 
     inner class ProductHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -24,18 +41,5 @@ class ProductsAdapter (val context: Context, val product : List<Product>) : Recy
             productName.text = product.title
             productPrice.text = product.price
         }
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.product_list_item, parent, false)
-        return ProductHolder(view)
-    }
-
-    override fun getItemCount(): Int {
-        return product.count()
-    }
-
-    override fun onBindViewHolder(holder: ProductHolder, position: Int) {
-        holder?.bindProduct(product[position], context)
     }
 }
