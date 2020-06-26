@@ -1,5 +1,6 @@
 package vitaz.example.coderswag.Controller
 
+import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,9 +8,11 @@ import android.widget.GridLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_products.*
 import vitaz.example.coderswag.Adapters.ProductsAdapter
+import vitaz.example.coderswag.Model.Product
 import vitaz.example.coderswag.R
 import vitaz.example.coderswag.Services.DataService
 import vitaz.example.coderswag.Utilities.EXTRA_CATEGORY
+import vitaz.example.coderswag.Utilities.EXTRA_ITEM
 
 class ProductsActivity : AppCompatActivity() {
 
@@ -20,7 +23,11 @@ class ProductsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_products)
 
         val categoryType = intent.getStringExtra(EXTRA_CATEGORY)
-        adapter = ProductsAdapter(this, DataService.getProducts(categoryType))
+        adapter = ProductsAdapter(this, DataService.getProducts(categoryType)) {item ->
+            val descriptionIntent = Intent(this, DescriptionActivity::class.java)
+            descriptionIntent.putExtra(EXTRA_ITEM, item)
+            startActivity(descriptionIntent)
+        }
 
         var spanCount = 2
         val orientation = resources.configuration.orientation
@@ -40,3 +47,4 @@ class ProductsActivity : AppCompatActivity() {
 
     }
 }
+
