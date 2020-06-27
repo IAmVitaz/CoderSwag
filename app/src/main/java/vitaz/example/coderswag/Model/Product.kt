@@ -6,12 +6,14 @@ import android.os.Parcelable
 class Product (
     val title: String?,
     val price: String?,
-    val image: String?
+    val image: String?,
+    var rating: Float
 ) : Parcelable{
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),
-        parcel.readString()
+        parcel.readString(),
+        parcel.readFloat()
     ) {
     }
 
@@ -19,6 +21,7 @@ class Product (
         parcel.writeString(title)
         parcel.writeString(price)
         parcel.writeString(image)
+        parcel.writeFloat(rating)
     }
 
     override fun describeContents(): Int {
