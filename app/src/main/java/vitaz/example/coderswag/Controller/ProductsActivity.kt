@@ -4,11 +4,9 @@ import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.GridLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_products.*
 import vitaz.example.coderswag.Adapters.ProductsAdapter
-import vitaz.example.coderswag.Model.Product
 import vitaz.example.coderswag.R
 import vitaz.example.coderswag.Services.DataService
 import vitaz.example.coderswag.Utilities.EXTRA_CATEGORY

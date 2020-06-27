@@ -3,14 +3,9 @@ package vitaz.example.coderswag.Controller
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
-import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
-import vitaz.example.coderswag.Adapters.CategoryAdapter
 import vitaz.example.coderswag.Adapters.CategoryRecyclerAdapter
-import vitaz.example.coderswag.Model.Category
 import vitaz.example.coderswag.R
 import vitaz.example.coderswag.Services.DataService
 import vitaz.example.coderswag.Utilities.EXTRA_CATEGORY

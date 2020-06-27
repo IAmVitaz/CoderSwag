@@ -2,7 +2,6 @@ package vitaz.example.coderswag.Controller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
 import kotlinx.android.synthetic.main.activity_description.*
 import vitaz.example.coderswag.Model.Product
 import vitaz.example.coderswag.R
